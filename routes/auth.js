@@ -14,6 +14,17 @@ router.get("/test",(req,res)=>{
 //@access   Public
 router.post("/register",async(req,res)=>{
     try{
+        // check for wexisting user 
+        const existingEmail = await User.findOne({
+            email: new RegExp("^" + req.body.email + "$", "i"),
+          });
+        if (existingEmail) {
+            return res
+              .status(400)
+              .json({ error: "There is already a user with this email" });
+          }
+      
+
         const hashedPassword=await bcrypt.hash(req.body.password,12);
         //create a new user
         const newUser=new User({
