@@ -10,8 +10,12 @@
     "dev": "concurrently \"npm run client\" \"npm run server\"",
     "install-client": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run install-client && npm run build",
+    "heroku-postbuild": "npm run build",
     "start": "node server.js"
+  },
+  "engines": {
+    "npm": "8.19.2",
+    "node": "18.10.0"
   },
   "keywords": [],
   "author": "",
