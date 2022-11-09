@@ -1,28 +1,28 @@
-const{Schema,model}=require('mongoose');
-const ToDOSchema=new Schema({
-    user:{
-        type:Schema.Types.ObjectId,
-        ref:"User"
-    },
-    content:{
-        type:String,
-        required:true,
+const { Schema, model } = require("mongoose");
 
+const ToDoSchema = new Schema(
+  {
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
     },
-    complete:{
-        type:Boolean,
-        default:false,
-
+    content: {
+      type: String,
+      required: true,
     },
-    completedAt:{
-        type:Date,
-    }
-},
-{
-    timestamps:true
-}
+    complete: {
+      type: Boolean,
+      default: false,
+    },
+    completedAt: {
+      type: Date,
+    },
+  },
+  {
+    timestamps: true,
+  }
 );
-//export the model
 
-const ToDo=model("Todo",ToDOSchema);
-module.exports=ToDo;
+// export the model
+const ToDo = model("ToDo", ToDoSchema);
+module.exports = ToDo;
