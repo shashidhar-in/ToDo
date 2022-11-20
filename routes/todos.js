@@ -85,7 +85,7 @@ router.put("/:toDoId/complete", requiresAuth, async (req, res) => {
         user: req.user._id,
         _id: req.params.toDoId,
       },
-      { 
+      {
         complete: true,
         completedAt: new Date(),
       },
